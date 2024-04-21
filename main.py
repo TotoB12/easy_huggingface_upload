@@ -24,7 +24,6 @@ def upload_video_to_huggingface(video_path, dataset_name, token):
     os.makedirs(os.path.dirname(repo_video_path), exist_ok=True)
     shutil.copy(video_path, repo_video_path)
 
-    # Use git to add, commit, and push the changes to the repository
     repo.git_add(auto_lfs_track=True)
     repo.git_commit(f"Upload video file: {video_filename}")
     repo.git_push()
